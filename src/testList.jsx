@@ -9,67 +9,30 @@ import { changTestLisAction } from "./redux/action/test.action"
 function TestList ()
 {
 
-
-    const dispatch = useDispatch()
-    const TestList = useSelector( ( state ) => state.TestList )
-
-    const [ newTest, setNewTest ] = useState( "" )
-
-    const handlechange = ( e ) =>
-    {
-        setNewTest( e.target.value )
-    }
-   
-
-    const handleClick = () =>
-    {
-        dispatch(
-            changTestLisAction(
-                {
-                    name: newTest
-                }
-            )
-        )
-    }
-
-
-
     return (
         <>
-            <div className="testList">
-                <div className="brg">
-                    <div className="form">
-                        <input
-                            type="text"
-                            placeholder="Tên người dùng"
-                            onChange={ handlechange }
-                            value={ newTest }
-
-                        />
-                        <br />
-                        <input
-                            type="text"
-                            placeholder="Mã số"
-                        />
-                        <br />
-                        <button className="btn" onClick={ handleClick }>
-                            click
-                        </button>
+            <div className="container">
+                <div className="formAddCRUD">
+                    <div className="headCRUD">
+                        <div className="leftCRUD">
+                            <button>
+                                Add new product
+                            </button>
+                            <input type="text"
+                            placeholder="nhập tên người dùng"
+                            />
+                        </div>
+                        <div className="rightCRUD">
+                            <input type="text"
+                            placeholder="Tìm kiếm"
+                            />
+                            <button>Search</button>
+                        </div>
+                    </div>
+                    <div className="formDataCRUD">
+                        
                     </div>
                 </div>
-
-            </div>
-            <div className="testList">
-                <div className="brg">
-                    <div className="form">
-                        { TestList && TestList.map( ( item, index ) => (
-                            <div key={ index }>
-                                { item.name }
-                            </div>
-                        ) ) }
-                    </div>
-                </div>
-
             </div>
         </>
 
