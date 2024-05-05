@@ -1,8 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { userList } from "../../data";
 
-const initialState = {
-    testList: {}
-}
+const initialState = userList
 
 const testListReducer = createReducer( initialState, builder =>
 {
@@ -12,7 +11,7 @@ const testListReducer = createReducer( initialState, builder =>
 
             return {
                 ...state,
-                testList: action.payload,
+                userList: action.payload,
         };
 } );
 });

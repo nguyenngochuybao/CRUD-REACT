@@ -1,4 +1,4 @@
-import './App.css';
+
 
 import TestList from "./testList"
 
