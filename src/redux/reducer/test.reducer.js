@@ -1,19 +1,19 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { userList } from "../../data";
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = userList
-
-const testListReducer = createReducer( initialState, builder =>
-{
-    builder
-        .addCase( 'GET_TEST_LIST', ( state, action ) =>
+export const userSlice = createSlice( {
+    name: "item",
+    initialState: {
+        userList:[]
+    },
+    reducers: {
+        addUser: function ( state, action )
         {
+            state.userList.push(action.payload)
+        }
+        
+    }
+} )
 
-            return {
-                ...state,
-                userList: action.payload,
-        };
-} );
-});
+export const {addUser} = userSlice.actions
 
-export default testListReducer;
+export default userSlice.reducer

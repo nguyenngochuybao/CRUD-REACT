@@ -1,24 +1,38 @@
 import "./style.css"
-import { useDispatch, useSelector } from "react-redux"
 
 import { useState } from "react"
 
-import { changTestLisAction } from "./redux/action/test.action"
+import { useDispatch, useSelector } from "react-redux"
+import { addUser } from "./redux/reducer/test.reducer"
 
+import axios from "axios"
 
 
 function TestList ()
 {
 
-    const users = useSelector( ( state ) => state.users )
+    const data = axios.get( "http://localhost:3000/usersData" )
+        .then( response =>
+        {
+            const data = response.data;
+            // Xử lý dữ liệu ở đây
+            console.log( data );
+        } )
+        .catch( error =>
+        {
+            // Xử lý lỗi ở đây
+            console.error( 'Đã có lỗi khi lấy dữ liệu:', error );
+        } );
+
+    const [ name, SetNam ] = useState( "" )
+
     const dispatch = useDispatch()
+    const users = useSelector( ( state ) => state.users.userList )
 
-    const [ name, setName ] = useState( '' )
-
-    const handleClick = ( event ) =>
+    const handleAddUser = ( event ) =>
     {
-        
-       
+
+        dispatch( addUser( { id: users.length + 1, name: name } ) )
     }
 
     return (
@@ -27,13 +41,15 @@ function TestList ()
                 <div className="formAddCRUD">
                     <div className="headCRUD">
                         <div className="leftCRUD">
-                            <button onClick={ ()=>(console.log(name)) }>
+                            <button onClick={ () => handleAddUser() }>
                                 Add new product
                             </button>
                             <input type="text"
                                 placeholder="nhập tên người dùng"
-                                value={name}
-                                onChange={ e => setName( e.target.value ) }
+                                value={ name }
+                                onChange={ ( e ) => SetNam( e.target.value ) }
+
+
                             />
                         </div>
                         <div className="rightCRUD">
@@ -45,19 +61,34 @@ function TestList ()
                     </div>
                     <div className="formDataCRUD">
                         <div className="dataCRUD">
-
-                            { users && users.map( ( users, index ) =>
-                            (
-                                <div className="dataNameBtn" key={ index }>
-                                    <p>{ users.name }</p>
-                                    <div className="btn">
-                                        <button>SỬA</button>
-                                        <button>XÓA</button>
-                                    </div>
+                            <div className="dataNameBtn">
+                                <p>hello</p>
+                                <div className="btn">
+                                    <button>SỬA</button>
+                                    <button>XÓA</button>
                                 </div>
-                            ) ) }
-                        </div>
+                            </div>
+                            {
+                                users.length > 0 ? users.map( ( users, index ) => (
+                                    <div className="dataNameBtn" key={ index }>
+                                        <p>{ users.name }</p>
+                                        <div className="btn">
+                                            <button>SỬA</button>
+                                            <button>XÓA</button>
+                                        </div>
+                                    </div>
+                                ) ) : ""
+                            }
 
+
+                        </div>
+                        {
+                            data.length > 0 ? data.map( ( data, index ) => (
+                                <div key={ index }>
+                                    { data.name }
+                                </div>
+                            ) ):""
+                        }
                     </div>
 
                 </div>
