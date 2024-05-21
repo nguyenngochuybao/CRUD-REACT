@@ -1,98 +1,84 @@
 import "./style.css"
 
-import { useState } from "react"
+import { Routes, Route, Link } from "react-router-dom"
 
-import { useDispatch, useSelector } from "react-redux"
-import { addUser } from "./redux/reducer/test.reducer"
 
+import { useEffect, useState } from "react"
 import axios from "axios"
+
+
 
 
 function TestList ()
 {
 
-    const data = axios.get( "http://localhost:3000/usersData" )
-        .then( response =>
-        {
-            const data = response.data;
-            // Xử lý dữ liệu ở đây
-            console.log( data );
-        } )
-        .catch( error =>
-        {
-            // Xử lý lỗi ở đây
-            console.error( 'Đã có lỗi khi lấy dữ liệu:', error );
-        } );
 
-    const [ name, SetNam ] = useState( "" )
+    const [ data, setData ] = useState( [] )
 
-    const dispatch = useDispatch()
-    const users = useSelector( ( state ) => state.users.userList )
-
-    const handleAddUser = ( event ) =>
+    useEffect( () =>
     {
-
-        dispatch( addUser( { id: users.length + 1, name: name } ) )
-    }
+        axios.get( "http://localhost:3000/usersData" )
+            .then( res => ( setData( res.data ) ) )
+            .catch( error => { console.log( error ) } )
+    }, [] )
 
     return (
         <>
-            <div className="container">
-                <div className="formAddCRUD">
-                    <div className="headCRUD">
-                        <div className="leftCRUD">
-                            <button onClick={ () => handleAddUser() }>
-                                Add new product
-                            </button>
-                            <input type="text"
-                                placeholder="nhập tên người dùng"
-                                value={ name }
-                                onChange={ ( e ) => SetNam( e.target.value ) }
-
-
-                            />
-                        </div>
-                        <div className="rightCRUD">
-                            <input type="text"
-                                placeholder="Tìm kiếm"
-                            />
-                            <button>Search</button>
-                        </div>
-                    </div>
-                    <div className="formDataCRUD">
-                        <div className="dataCRUD">
-                            <div className="dataNameBtn">
-                                <p>hello</p>
-                                <div className="btn">
-                                    <button>SỬA</button>
-                                    <button>XÓA</button>
-                                </div>
-                            </div>
-                            {
-                                users.length > 0 ? users.map( ( users, index ) => (
-                                    <div className="dataNameBtn" key={ index }>
-                                        <p>{ users.name }</p>
-                                        <div className="btn">
-                                            <button>SỬA</button>
-                                            <button>XÓA</button>
-                                        </div>
-                                    </div>
-                                ) ) : ""
-                            }
-
-
-                        </div>
+            <div class="product-list">
+                <div className="cssTable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-table">
+                            <tr>
+                                <th>123</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Category</th>
+                                <th>
+                                    <Link to="/addList">
+                                        <button className="btnUp">SỬA</button>
+                                    </Link>
+                                    <button className="btnDe">XÓA</button>
+                                </th>
+                            </tr>
+                        </tbody>
                         {
-                            data.length > 0 ? data.map( ( data, index ) => (
-                                <div key={ index }>
-                                    { data.name }
-                                </div>
-                            ) ):""
+                            data.map( ( item, index ) => (
+                                <tbody id="product-table" key={ index }>
+                                    <tr>
+                                        <th>{ item.name }</th>
+                                        <th>{ item.price }</th>
+                                        <th>{ item.quantity }</th>
+                                        <th>{ item.category }</th>
+                                        <th>
+                                            <Link to="/addList">
+                                                <button className="btnUp">SỬA</button>
+                                            </Link>
+                                            <button className="btnDe">XÓA</button>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            ) )
                         }
-                    </div>
-
+                    </table>
                 </div>
             </div>
+            <div className="form_btnAdd">
+                <Link to={"/addList"}>
+                    <button className="btnADD">
+                        ADD
+                    </button>
+                </Link>
+            </div>
+
         </>
 
     )

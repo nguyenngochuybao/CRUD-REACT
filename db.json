@@ -1,16 +1,11 @@
 {
-    "usersData": [
-        {
-            "id": 1,
-            "name": "Huy Bảo"
-        },
-        {
-            "id": 2,
-            "name": "Nguyễn Ngọc Huy Bảo"
-        },
-        {
-            "id": 3,
-            "name": "Huy Bảo Nguyễn Ngọc"
-        }
-    ]
+  "usersData": [
+    {
+      "id": 1,
+      "name": "Iphone",
+      "price": 1000,
+      "quantity": 1,
+      "category": "new"
+    }
+  ]
 }

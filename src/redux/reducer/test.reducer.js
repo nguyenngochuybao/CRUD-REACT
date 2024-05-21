@@ -8,7 +8,7 @@ export const userSlice = createSlice( {
     reducers: {
         addUser: function ( state, action )
         {
-            state.userList.push(action.payload)
+            state.userList.push( action.payload )
         }
         
     }
