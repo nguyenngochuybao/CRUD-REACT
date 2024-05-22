@@ -43,7 +43,7 @@ function TestList ()
                                 <th>Quantity</th>
                                 <th>Category</th>
                                 <th>
-                                    <Link to="/addList">
+                                    <Link to="/updateList">
                                         <button className="btnUp">SỬA</button>
                                     </Link>
                                     <button className="btnDe">XÓA</button>
@@ -51,15 +51,15 @@ function TestList ()
                             </tr>
                         </tbody>
                         {
-                            data.map( ( item, index ) => (
+                            data.map( ( data, index ) => (
                                 <tbody id="product-table" key={ index }>
                                     <tr>
-                                        <th>{ item.name }</th>
-                                        <th>{ item.price }</th>
-                                        <th>{ item.quantity }</th>
-                                        <th>{ item.category }</th>
+                                        <th>{ data.name }</th>
+                                        <th>{ data.price }</th>
+                                        <th>{ data.quantity }</th>
+                                        <th>{ data.category }</th>
                                         <th>
-                                            <Link to="/addList">
+                                            <Link to="/updateList">
                                                 <button className="btnUp">SỬA</button>
                                             </Link>
                                             <button className="btnDe">XÓA</button>

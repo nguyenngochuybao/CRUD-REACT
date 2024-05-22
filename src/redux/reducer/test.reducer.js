@@ -9,11 +9,18 @@ export const userSlice = createSlice( {
         addUser: function ( state, action )
         {
             state.userList.push( action.payload )
+        },
+        updateUser: function ( state, action )
+        {
+            return {
+                ...state,
+                ...action.payload
+            }
         }
         
     }
 } )
 
-export const {addUser} = userSlice.actions
+export const {addUser,updateUser} = userSlice.actions
 
 export default userSlice.reducer

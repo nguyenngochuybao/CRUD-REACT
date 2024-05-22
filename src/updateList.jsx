@@ -1,32 +1,32 @@
-import { Routes, Route, Link } from "react-router-dom"
 import "./style.css"
 
 import { useEffect, useState } from "react"
-
 import { useDispatch, useSelector } from "react-redux"
+
 import { addUser } from "./redux/reducer/test.reducer"
+import { updateUser } from "./redux/reducer/test.reducer"
+
 import axios from "axios"
+import { Routes, Route, Link } from "react-router-dom"
 
 
-function AddList ()
+
+
+function UpDateList ()
 {
-
-    const users = useSelector( ( state ) => state.users.userList )
-
-    const [ name, setName ] = useState( "" )
-    const [ price, setPrice ] = useState( 0 )
-    const [ quantity, setQuantity ] = useState( 0 )
 
     const dispatch = useDispatch()
 
-    const handleClick = () =>
-    {
-        const newUser = { id: users.length + 1, name: name, price: price, quantity: quantity }
+    const [ updateName, setUpdateName ] = useState( "" )
+    const [ updatePrice, setUpdatePrice ] = useState( 0 )
+    const [ updateQuantily, setUpdateQuantity ] = useState( 0 )
 
-        axios.post( "http://localhost:3000/usersData", newUser )
-            .then( res => ( res.data ) )
-            .catch( error => ( console.log( error ) ) )
-        dispatch( addUser( newUser ) )
+
+    const handleUpDate = () =>
+    {
+
+
+        axios.post("http://localhost:3000/usersData")
     }
 
     return (
@@ -37,19 +37,21 @@ function AddList ()
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text"
-                            onChange={ ( e ) => setName( e.target.value ) }
+                            onChange={ ( e ) => setUpdateName(e.target.value) }
                         />
                     </div>
                     <div class="form-group">
                         <label for="price">Price:</label>
                         <input type="number"
-                            onChange={ ( e ) => setPrice( e.target.value ) }
+                            onChange={ ( e ) => setUpdatePrice( e.target.value ) }
+
                         />
                     </div>
                     <div class="form-group">
                         <label for="quantity">Quantity:</label>
                         <input type="number"
-                            onChange={ ( e ) => setQuantity( e.target.value ) }
+                            onChange={ ( e ) => setUpdateQuantity( e.target.value ) }
+
                         />
                     </div>
                     <div class="form-group">
@@ -62,7 +64,7 @@ function AddList ()
                         </select>
                     </div>
                     <Link to="/">
-                        <button class="btn" onClick={ () => ( handleClick() ) }>Add Product</button>
+                        <button class="btn" onClick={ () => ( handleUpDate() )}>UpDate List</button>
                     </Link>
                 </div>
             </div>
@@ -70,4 +72,4 @@ function AddList ()
     )
 }
 
-export default AddList
+export default UpDateList
