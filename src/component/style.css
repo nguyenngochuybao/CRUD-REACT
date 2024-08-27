@@ -1,0 +1,39 @@
+.user {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin-top: 50px;
+    width: 40%;
+    width: auto;
+
+}
+
+ul {
+    display: flex;
+    list-style: none;
+}
+
+.ul_li {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 30px;
+    border-bottom: 1px solid rgb(143, 139, 139);
+}
+
+li {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 30px;
+    border-bottom: 1px solid rgb(143, 139, 139);
+}
+
+.li_name {
+    padding-left: 40px;
+    padding-right: 180px;
+}
+
+.li_email {
+    padding-right: 300px;
+}
