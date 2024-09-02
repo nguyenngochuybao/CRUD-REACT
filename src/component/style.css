@@ -5,35 +5,47 @@
 
 .container {
     margin-top: 50px;
-    width: 40%;
-    width: auto;
+    width: 50%;
+    height: 80vh;
 
 }
 
 ul {
     display: flex;
-    list-style: none;
-}
 
-.ul_li {
-    font-size: 30px;
-    font-weight: bold;
-    padding: 0px 30px;
-    border-bottom: 1px solid rgb(143, 139, 139);
 }
 
 li {
+    list-style: none;
     font-size: 30px;
     font-weight: bold;
-    padding: 0px 30px;
-    border-bottom: 1px solid rgb(143, 139, 139);
 }
 
-.li_name {
-    padding-left: 40px;
-    padding-right: 180px;
+.li1 {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 50px;
+    border-bottom: 1px solid rgb(206, 206, 206);
 }
 
-.li_email {
-    padding-right: 300px;
+.li2 {
+    display: flex;
+    align-items: center;
+    width: 320px;
+    height: 50px;
+    border-bottom: 1px solid rgb(206, 206, 206);
+
+
 }
+    
+.li3 {
+    display: flex;
+    align-items: center;
+    width: 550px;
+    height: 50px;
+    border-bottom: 1px solid rgb(206, 206, 206);
+
+}
+
+.user_ul {}
