@@ -21,10 +21,10 @@ function User ()
             <div className='container'>
                 <table>
                     <tr className='thead'>
-                        <td style={ { width:"100px"}}>id</td>
-                        <td>name</td>
-                        <td>emial</td>
-                        <td>action</td>
+                        <td style={ { width:"100px"}}>Id</td>
+                        <td>Name</td>
+                        <td>Emial</td>
+                        <td>Action</td>
                     </tr>
                     {
                         data.map( ( data, index ) => (
