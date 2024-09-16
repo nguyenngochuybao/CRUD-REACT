@@ -19,20 +19,28 @@ function User ()
     return (
         <div className="user">
             <div className='container'>
-                <ul className='user_ul'>
-                    <li className='li1'>id</li>
-                    <li className='li2'>name</li>
-                    <li className='li3'>email</li>
-                </ul>
-                {
-                    data.map( ( data, index ) =>
-                    ( <ul className='user_ul' key={ index }>
-                        <li className='li1'>{ data.id }</li>
-                        <li className='li2'>{ data.name }</li>
-                        <li className='li3'>{ data.email }</li>
-                    </ul> )
-                    )
-                }
+                <table>
+                    <tr className='thead'>
+                        <td style={ { width:"100px"}}>id</td>
+                        <td>name</td>
+                        <td>emial</td>
+                        <td>action</td>
+                    </tr>
+                    {
+                        data.map( ( data, index ) => (
+                            <tr key={index}>
+
+                                <td style={ { width: "100px" } } >{ data.id }</td>
+                                <td>{ data.name }</td>
+                                <td>{ data.email }</td>
+                                <td>
+                                    <button className='btnA'>Edit</button>
+                                    <button className='btnB'>Delete</button>
+                                </td>
+                            </tr>   
+                            ) )
+                    }
+                </table>
             </div>
         </div>
     );
