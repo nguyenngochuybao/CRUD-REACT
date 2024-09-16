@@ -1,6 +1,7 @@
 import axios from 'axios';
 import './style.css'
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function User ()
 {
@@ -21,24 +22,24 @@ function User ()
             <div className='container'>
                 <table>
                     <tr className='thead'>
-                        <td style={ { width:"100px"}}>Id</td>
+                        <td style={ { width: "100px" } }>Id</td>
                         <td>Name</td>
                         <td>Emial</td>
                         <td>Action</td>
                     </tr>
                     {
                         data.map( ( data, index ) => (
-                            <tr key={index}>
+                            <tr key={ index }>
 
                                 <td style={ { width: "100px" } } >{ data.id }</td>
                                 <td>{ data.name }</td>
                                 <td>{ data.email }</td>
                                 <td>
-                                    <button className='btnA'>Edit</button>
+                                    <Link to={"/"}><button className='btnA'>Edit</button></Link>
                                     <button className='btnB'>Delete</button>
                                 </td>
-                            </tr>   
-                            ) )
+                            </tr>
+                        ) )
                     }
                 </table>
             </div>
