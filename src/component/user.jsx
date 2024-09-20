@@ -34,8 +34,8 @@ function User ()
                                 <td style={ { width: "100px" } } >{ data.id }</td>
                                 <td>{ data.name }</td>
                                 <td>{ data.email }</td>
-                                <td>
-                                    <Link to={"/"}><button className='btnA'>Edit</button></Link>
+                                <td className='td_btn'>
+                                    <Link to={"/Add"}><button className='btnA'>Edit</button></Link>
                                     <button className='btnB'>Delete</button>
                                 </td>
                             </tr>
