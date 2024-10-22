@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Huy Bảo",
+      "email": "bao@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Ngọc",
+      "email": "bao@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Văn Nam",
+      "email": "bao@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Huỳnh Văn",
+      "email": "bao@gmail.com"
+    }
+  ]
+}

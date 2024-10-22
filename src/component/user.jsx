@@ -3,17 +3,12 @@ import './style.css'
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
+
 function User ()
 {
-    const [ data, setData ] = useState( [] )
 
-    useEffect( () =>
-    {
-        axios.get( "http://localhost:3000/users" )
-            .then( res => setData( res.data ) )
-            .catch( error => ( error ) );
-
-    }, [] )
+    const users = useSelector( ( state ) => ( state.users ) )
 
 
 
@@ -25,17 +20,21 @@ function User ()
                         <td style={ { width: "100px" } }>Id</td>
                         <td>Name</td>
                         <td>Emial</td>
-                        <td>Action</td>
+                        <td>
+                            Action
+                            <Link to={ "/Add" }>
+                                <button className='btnBtn'>Add+</button>
+                            </Link>
+                        </td>
                     </tr>
                     {
-                        data.map( ( data, index ) => (
+                        users.map( ( users, index ) => (
                             <tr key={ index }>
-
-                                <td style={ { width: "100px" } } >{ data.id }</td>
-                                <td>{ data.name }</td>
-                                <td>{ data.email }</td>
+                                <td style={ { width: "100px" } } >{ users.id }</td>
+                                <td>{ users.name }</td>
+                                <td>{ users.email }</td>
                                 <td className='td_btn'>
-                                    <Link to={"/Add"}><button className='btnA'>Edit</button></Link>
+                                    <button className='btnA'>Edit</button>
                                     <button className='btnB'>Delete</button>
                                 </td>
                             </tr>

@@ -1,11 +1,13 @@
 .user {
     display: flex;
     justify-content: center;
+    width: auto;
+    height: auto;
 }
 
 .container {
     margin-top: 50px;
-    width: 50%;
+    width: auto;
     height: auto;
     display: flex;
     justify-content: center;
@@ -13,7 +15,7 @@
 
 }
 
-td{
+td {
     border-bottom: 1px solid gray;
     width: 300px;
     height: 70px;
@@ -21,38 +23,39 @@ td{
     display: flex;
     align-items: center;
 }
- tr{
+
+tr {
     font-size: 35px;
- }
+}
 
- .thead>td{
+.thead > td {
     font-weight: bold;
- }
+}
 
-.btnA{
+.btnA {
     color: white;
     background-color: rgb(63, 63, 253);
-    border: 1px solid  rgb(63, 63, 253);
+    border: 1px solid rgb(63, 63, 253);
     border-radius: 3px;
     font-size: 18px;
-    padding: 5px 15px; 
+    padding: 5px 15px;
     margin-right: 5px;
     cursor: pointer;
 }
 
-.btnB{
+.btnB {
     color: white;
     background-color: rgb(231, 62, 62);
-    border: 1px solid  rgb(231, 62, 62);
+    border: 1px solid rgb(231, 62, 62);
     border-radius: 3px;
     font-size: 18px;
 
-    padding: 5px 15px; 
+    padding: 5px 15px;
     margin-left: 5px;
     cursor: pointer;
 }
 
-.add{
+.add {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +63,7 @@ td{
     height: 100vh;
 }
 
-.form_add{
+.form_add {
     background-color: white;
     border: 1px solid rgb(196, 192, 192);
     width: 800px;
@@ -71,7 +74,7 @@ td{
     justify-content: center;
 }
 
-.form_add_user{
+.form_add_user {
     /* background-color: aqua; */
     width: 650px;
     height: 400px;
@@ -79,47 +82,64 @@ td{
     display: block;
 }
 
-.form_add_user>h1{
+.form_add_user > h1 {
     margin: 10px;
     font-size: 40px;
 }
-.form_inp>input{
+
+.form_inp > input {
     width: 600px;
     height: 40px;
     border-radius: 5px;
     border: 1px solid rgb(194, 190, 190);
+    outline: none;
 }
 
-.form_inp>p{
+.form_inp > p {
     margin: 5px 0px;
 }
 
-.form_btn{
+.form_btn {
     /* background-color: blue; */
     width: 100%;
     height: 100px;
+
 }
 
-.btn_submit{
+.btn_submit {
     background-color: #0f6a4b;
     color: white;
     padding: 10px 24px;
     border: 1px solid #0f6a4b;
     font-size: 16px;
-    border-radius: 10px ;
+    border-radius: 10px;
     margin-right: 15px;
     margin-top: 20px;
     cursor: pointer;
 }
 
-.btn_back{
+.btn_back {
     background-color: rgb(105, 105, 255);
     color: white;
     padding: 10px 24px;
-    border: 1px solid  rgb(105, 105, 255);
+    border: 1px solid rgb(105, 105, 255);
     font-size: 16px;
-    border-radius: 10px ;
+    border-radius: 10px;
     margin-left: 15px;
     margin-top: 20px;
     cursor: pointer;
+}
+
+
+.btnBtn{
+    background-color: #0f6a4b;
+    width: 100px;
+    height: 40px;
+    border: 0;
+    color: white;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+    margin-left: 80px;
+    border-radius: 5px;
 }
