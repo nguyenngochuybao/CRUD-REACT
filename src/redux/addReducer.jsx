@@ -9,6 +9,7 @@ const addSlice = createSlice( {
         {
             state.push( action.payload )
         }
+        
     }
 } )
 

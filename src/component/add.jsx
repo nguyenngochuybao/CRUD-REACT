@@ -18,7 +18,7 @@ function Add ()
     const users = useSelector( ( state ) => ( state.users ) )
     const dispatch = useDispatch()
 
-    const handleCreate = () =>
+    const handleCreate = async () =>
     {
         dispatch(
             addUser( {
@@ -29,6 +29,8 @@ function Add ()
         )
         navigate( "/" )
     }
+
+
 
     return (
         <div className="add">
