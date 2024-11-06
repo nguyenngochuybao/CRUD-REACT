@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
+import { Color } from 'antd/es/color-picker';
 
 function User ()
 {
@@ -34,7 +35,7 @@ function User ()
                                 <td>{ users.name }</td>
                                 <td>{ users.email }</td>
                                 <td className='td_btn'>
-                                    <button className='btnA'>Edit</button>
+                                    <button className='btnA'><Link to={ `/edit/${ users.id }` } className='editCss'>Edit</Link></button>
                                     <button className='btnB'>Delete</button>
                                 </td>
                             </tr>

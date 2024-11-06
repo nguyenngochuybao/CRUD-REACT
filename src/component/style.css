@@ -143,3 +143,8 @@ tr {
     margin-left: 80px;
     border-radius: 5px;
 }
+
+.editCss{
+    color: white;
+    text-decoration: none;
+}

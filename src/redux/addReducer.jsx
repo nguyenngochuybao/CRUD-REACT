@@ -8,11 +8,16 @@ const addSlice = createSlice( {
         addUser: ( state, action ) =>
         {
             state.push( action.payload )
+        },
+
+        updateUser: ( state, action ) =>
+        {
+            state.push( action.payload )
         }
-        
+
     }
 } )
 
 
-export const { addUser } = addSlice.actions
+export const { addUser, updateUser } = addSlice.actions
 export default addSlice.reducer 
