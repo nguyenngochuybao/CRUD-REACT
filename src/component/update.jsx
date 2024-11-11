@@ -21,9 +21,11 @@ function Update ()
     {
         dispatch(
             updateUser(
-               { id: id,
-                name: uname,
-                email:uemail}
+                {
+                    id: id,
+                    name: uname,
+                    email: uemail
+                }
             )
         )
     }
