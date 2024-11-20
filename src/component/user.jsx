@@ -3,15 +3,25 @@ import './style.css'
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
-import { Color } from 'antd/es/color-picker';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { deleteUser } from '../redux/addReducer';
 
 function User ()
 {
 
     const users = useSelector( ( state ) => ( state.users ) )
 
+    const dispathch = useDispatch()
 
+    const handleDelete = ( id ) =>
+    {
+        dispathch(
+            deleteUser(
+                { id:id }
+            )
+        )
+    }
 
     return (
         <div className="user">
@@ -36,7 +46,7 @@ function User ()
                                 <td>{ users.email }</td>
                                 <td className='td_btn'>
                                     <button className='btnA'><Link to={ `/edit/${ users.id }` } className='editCss'>Edit</Link></button>
-                                    <button className='btnB'>Delete</button>
+                                    <button className='btnB' onClick={ () => handleDelete( users.id ) }>Delete</button>
                                 </td>
                             </tr>
                         ) )
